@@ -1,38 +1,371 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(ellipse at top, #2c003e, #000000);
+  font-family: "Cinzel Decorative", serif;
+  color: #f0e6ff;
   text-align: center;
+  min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Titre principal */
+h1 {
+  font-size: 3rem;
+  color: #ffccff;
+  text-shadow: 0 0 20px #9933ff;
+  margin-top: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Tagline mystique */
+.tagline {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.3rem;
+  color: #d1b3ff;
+  margin-bottom: 2rem;
+}
+
+/* Conteneur des deux boutons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Style des boutons */
+button {
+  background: linear-gradient(145deg, #a300ff, #c864ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-family: "Cinzel Decorative", serif;
+  box-shadow: 0 0 20px rgba(255, 105, 255, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 105, 255, 0.8);
+}
+
+/* Champs de filtre */
+select,
+input[type="number"] {
+  padding: 0.6rem;
+  border-radius: 6px;
+  background-color: #330033;
+  color: #fff;
+  border: 1px solid #660066;
+  margin: 0.5rem;
+  font-size: 1rem;
+  font-family: "Cinzel Decorative", serif;
+}
+
+/* Résultat du film */
+.movie-display {
+  margin-top: 3rem;
+}
+
+.movie-display h2 {
+  font-size: 2rem;
+  color: #ffb3ff;
+  text-shadow: 0 0 10px #cc66ff;
+}
+
+.movie-display p {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 1rem 2rem;
+  color: #e6d6ff;
+}
+
+/* Affiche */
+.movie-display img {
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(200, 0, 255, 0.4);
+  max-width: 300px;
+}
+
+/* Animation magique de fade-in / slide-down */
+.filter-container {
+  animation: fadeSlideDown 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.no-movie-message {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #ff99ff;
+  font-size: 1.2rem;
+  animation: pulseFade 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulseFade {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.crystal-ball:hover {
+  transform: scale(1.1);
+}
+
+.click-to-begin {
+  color: white;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Crystal Ball Pure CSS */
+
+/* 🌌 Background & Wrapper */
+.crystal-ball-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #15001e 0%, #0a0010 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+/* 🔮 Crystal Ball Style */
+.crystal-ball {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #9e5cd8 0%,
+    #5b0a85 40%,
+    #33003d 70%,
+    #220025 100%
+  );
+  box-shadow: 0 0 60px 15px rgba(207, 117, 255, 0.8),
+    0 0 120px 60px rgba(176, 83, 255, 0.5),
+    inset 0 0 50px 10px rgba(255, 255, 255, 0.2);
+  animation: pulse 3s infinite ease-in-out;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes App-logo-spin {
+/* ✨ Glow animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 60px 15px rgba(207, 117, 255, 0.8),
+      0 0 120px 60px rgba(176, 83, 255, 0.5),
+      inset 0 0 50px 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 80px 25px rgba(207, 117, 255, 1),
+      0 0 140px 70px rgba(200, 88, 255, 0.7),
+      inset 0 0 60px 15px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 60px 15px rgba(207, 117, 255, 0.8),
+      0 0 120px 60px rgba(176, 83, 255, 0.5),
+      inset 0 0 50px 10px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* 🧙‍♀️ Intro Text */
+.crystal-text {
+  font-size: 1.8rem;
+  font-family: "Cinzel", serif;
+  color: #e9d2ff;
+  margin-top: 40px;
+  text-shadow: 0 0 10px #d175ff;
+  animation: fadeInUp 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    transform: translateY(20px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
+}
+
+/* 🌟 Floating Stars */
+.sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff;
+  animation: sparkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 0.4;
+    transform: scale(0.8) translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2) translateY(-10px);
+  }
+}
+/* Global background and star field (shared across app) */
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at center, #1a001f 0%, #0b0011 100%);
+  color: #e7d3ff;
+  font-family: "Cinzel", serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Container with stars */
+.app-background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Crystal ball reusable class */
+.crystal-ball-3d {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle at 30% 30%, #f0d9ff, #9f4bf0, #3c006f);
+  border-radius: 50%;
+  box-shadow: 0 0 90px 40px rgba(192, 136, 255, 0.7),
+    inset 0 0 60px rgba(255, 255, 255, 0.2);
+  animation: pulse-ball 4s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.crystal-ball-3d:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse-ball {
+  0% {
+    box-shadow: 0 0 90px 40px rgba(192, 136, 255, 0.7),
+      inset 0 0 40px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 120px 60px rgba(255, 195, 255, 0.9),
+      inset 0 0 60px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 90px 40px rgba(192, 136, 255, 0.7),
+      inset 0 0 40px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Text styling */
+.crystal-intro-text {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  color: #e7d3ff;
+  text-shadow: 0 0 12px #c088ff;
+  letter-spacing: 1px;
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reusable loading witchy animation */
+.witchy-loading {
+  font-size: 1.2rem;
+  color: #f0d9ff;
+  text-shadow: 0 0 8px #ffbbff;
+  animation: flicker 1.5s infinite alternate;
+  margin-top: 1rem;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 14px #ffccff;
+  }
+}
+
+/* Filter + result container */
+.filters-container,
+.results-container {
+  padding: 2rem;
+  z-index: 1;
+  position: relative;
 }
