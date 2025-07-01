@@ -3,6 +3,8 @@ import RandomButtons from "./components/RandomButtons";
 import FilterForm from "./components/FilterForm";
 import MovieDisplay from "./components/MovieDisplay";
 import { getFilteredMovie, getRandomMovie } from "./api/tmdb";
+import ShootingStars from "./components/ShootingStars";
+
 import "./App.css";
 
 const decades = {
@@ -18,6 +20,19 @@ const decades = {
   "2010's": { gte: "2010-01-01", lte: "2019-12-31" },
   "2020's": { gte: "2020-01-01", lte: "2029-12-31" },
 };
+
+// Helper function to generate random positions with animation delays
+function generateRandomPositions(count) {
+  const positions = [];
+  for (let i = 0; i < count; i++) {
+    positions.push({
+      top: `${Math.random() * 100}vh`,
+      left: `${Math.random() * 100}vw`,
+      animationDelay: `${Math.random() * 5}s`,
+    });
+  }
+  return positions;
+}
 
 function App() {
   const [movie, setMovie] = useState(null);
@@ -39,7 +54,6 @@ function App() {
         <div className="crystal-ball"></div>
         <p className="crystal-text">Click the crystal to begin</p>
 
-        {/* Add some sparkle elements */}
         {[...Array(25)].map((_, i) => (
           <div
             key={i}
@@ -55,21 +69,64 @@ function App() {
     );
   }
 
+  const stars = generateRandomPositions(50);
+
   return (
     <div className="App">
-      <h1>🔮 Mimi's Movie Randomizer 🔮</h1>
-      <p className="tagline">
-        Let the universe and Mimi’s TMDB magic algorithm choose your movie.
-      </p>
+      <div
+        className="header-container"
+        style={{ position: "relative", overflow: "visible" }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 0,
+            pointerEvents: "none",
+            overflow: "visible",
+          }}
+        >
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="star"
+              style={{
+                position: "absolute",
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                width: "3px",
+                height: "3px",
+                borderRadius: "50%",
+                backgroundColor: "white",
+                boxShadow: "0 0 8px white",
+                animation: "twinkle 2s infinite ease-in-out",
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+        <ShootingStars />
+
+        <h1 style={{ position: "relative", zIndex: 1 }}>
+          🔮 Mimi's Movie Randomizer 🔮
+        </h1>
+        <p className="tagline" style={{ position: "relative", zIndex: 1 }}>
+          Let the universe and Mimi’s TMDB magic algorithm choose your movie.
+        </p>
+      </div>
+
       <div className="app-background">
-        {Array.from({ length: 50 }).map((_, i) => (
+        {stars.map((pos, idx) => (
           <div
-            key={i}
+            key={`star-${idx}`}
             className="star"
             style={{
-              top: `${Math.random() * 100}vh`,
-              left: `${Math.random() * 100}vw`,
-              animationDelay: `${Math.random() * 5}s`,
+              top: pos.top,
+              left: pos.left,
+              animationDelay: pos.animationDelay,
             }}
           />
         ))}

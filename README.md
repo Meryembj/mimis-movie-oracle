@@ -4,6 +4,8 @@ A little magical project born from the eternal question: “What should I watch 
 
 Powered by the universe, TMDB, and my own mystical algorithm, this app picks a random movie for you or lets you choose by genre and decade.
 
+# https://mimis-movie-oracle.vercel.app/
+
 ## How to Use
 
 1. Clone the repository:

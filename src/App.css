@@ -241,11 +241,11 @@ input[type="number"] {
 /* Stars */
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: 3px;
+  height: 3px;
   background: white;
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 8px white;
   animation: twinkle 2s infinite ease-in-out;
 }
 
@@ -261,7 +261,28 @@ input[type="number"] {
   }
 }
 
-/* Container with stars */
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 80px;
+  background: linear-gradient(45deg, white, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px white);
+  animation: shooting 2s linear infinite;
+  opacity: 0;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px) translateY(500px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
 .app-background {
   position: absolute;
   width: 100vw;
@@ -270,7 +291,6 @@ input[type="number"] {
   z-index: -1;
 }
 
-/* Crystal ball reusable class */
 .crystal-ball-3d {
   width: 260px;
   height: 260px;
@@ -302,7 +322,6 @@ input[type="number"] {
   }
 }
 
-/* Text styling */
 .crystal-intro-text {
   margin-top: 30px;
   font-size: 1.6rem;
@@ -323,7 +342,6 @@ input[type="number"] {
   }
 }
 
-/* Reusable loading witchy animation */
 .witchy-loading {
   font-size: 1.2rem;
   color: #f0d9ff;
@@ -342,7 +360,6 @@ input[type="number"] {
   }
 }
 
-/* Filter + result container */
 .filters-container,
 .results-container {
   padding: 2rem;

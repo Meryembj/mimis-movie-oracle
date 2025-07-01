@@ -7,17 +7,17 @@ function FilterForm({ onSubmit, onSubmitted }) {
   const [selectedDecade, setSelectedDecade] = useState("");
 
   const decadeLabels = [
-    "20s",
-    "30s",
-    "40s",
-    "50s",
-    "60s",
-    "70s",
-    "80s",
-    "90s",
-    "2000s",
-    "2010s",
-    "2020s",
+    "20's",
+    "30's",
+    "40's",
+    "50's",
+    "60's",
+    "70's",
+    "80's",
+    "90's",
+    "2000's",
+    "2010's",
+    "2020's",
   ];
 
   useEffect(() => {
