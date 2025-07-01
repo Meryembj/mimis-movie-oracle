@@ -4,6 +4,7 @@ import FilterForm from "./components/FilterForm";
 import MovieDisplay from "./components/MovieDisplay";
 import { getFilteredMovie, getRandomMovie } from "./api/tmdb";
 import ShootingStars from "./components/ShootingStars";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./App.css";
 
@@ -114,7 +115,8 @@ function App() {
           🔮 Mimi's Movie Randomizer 🔮
         </h1>
         <p className="tagline" style={{ position: "relative", zIndex: 1 }}>
-          Let the universe and Mimi’s TMDB magic algorithm choose your movie.
+          Let the universe and my very own TMDB magic algorithm choose your
+          movie.
         </p>
       </div>
 
@@ -171,7 +173,7 @@ function App() {
           <MovieDisplay movie={movie} />
         </div>
       )}
-
+      <Analytics></Analytics>
       {hasSearched && !isLoading && movie === null && (
         <p className="no-movie-message">
           ✨ The universe found no movie for this combination. Try again! ✨
