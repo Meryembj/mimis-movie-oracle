@@ -45,7 +45,6 @@ export const getFilteredMovie = async (genre, decadeRange) => {
     });
 
     const movies = res.data.results;
-    console.log(`📦 Page ${page} returned: ${movies.length} results`);
     allMovies = allMovies.concat(movies);
   }
 
@@ -56,7 +55,6 @@ export const getFilteredMovie = async (genre, decadeRange) => {
     return isDateOk && isGenrePresent;
   });
 
-  console.log("✅ Filtered movies:", filtered.length);
 
   if (filtered.length === 0) return null;
 
