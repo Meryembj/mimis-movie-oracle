@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background: radial-gradient(ellipse at center, #1a001f 0%, #0b0011 100%);
-  font-family: "UnifrakturCook", cursive;
+  font-family: "Cinzel Decorative", cursive;
   color: #f0e6ff;
   text-align: center;
   min-height: 100vh;
@@ -12,8 +12,10 @@ body {
 
 h1 {
   font-size: 3rem;
-  color: #ffccff;
-  text-shadow: 0 0 20px #9933ff;
+  font-family: "UnifrakturCook", cursive;
+
+  color: #b048b0;
+  text-shadow: 0 0 20px #380967;
   margin-top: 2rem;
 }
 
@@ -33,7 +35,7 @@ h1 {
 }
 
 button {
-  background: linear-gradient(145deg, #a300ff, #c864ff);
+  background: linear-gradient(145deg, #3b0957, #471462);
   color: white;
   border: none;
   border-radius: 12px;
@@ -365,4 +367,13 @@ input[type="number"] {
   padding: 2rem;
   z-index: 1;
   position: relative;
+}
+.button-container {
+  margin-top: 1rem;
+}
+
+.tarot-result {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import RandomButtons from "./components/RandomButtons";
+//import RandomButtons from "./components/RandomButtons";
 import FilterForm from "./components/FilterForm";
-import MovieDisplay from "./components/MovieDisplay";
+//import MovieDisplay from "./components/MovieDisplay";
 import { getFilteredMovie, getRandomMovie } from "./api/tmdb";
 import ShootingStars from "./components/ShootingStars";
 import { Analytics } from "@vercel/analytics/react";
+import TarotMovieCard from "./components/Tarot/TarotMovieCard";
 
+import "./components/Tarot/TarotMovieCard.css";
 import "./App.css";
 
 const decades = {
@@ -112,11 +114,11 @@ function App() {
         <ShootingStars />
 
         <h1 style={{ position: "relative", zIndex: 1 }}>
-          🔮 Mimi's Movie Randomizer 🔮
+          🔮 Mimi's Movie Oracle 🔮
         </h1>
         <p className="tagline" style={{ position: "relative", zIndex: 1 }}>
-          Let the universe and my very own TMDB magic algorithm choose your
-          movie.
+          Let the universe reveal your tarot card… and the movie it chooses for
+          you.{" "}
         </p>
       </div>
 
@@ -145,12 +147,13 @@ function App() {
             setIsLoading(false);
           }}
         >
-          🔮 Totally Random Movie
+          🃏 Totally Random Movie 🃏
         </button>
-
-        <button onClick={toggleFilters}>🔮 Random With Filters</button>
+        <button onClick={toggleFilters}>🃏 Random With Filters 🃏</button>
       </div>
-
+      <div className="tarot-result">
+        {!isLoading && movie && <TarotMovieCard movie={movie} />}
+      </div>
       {showFilters && (
         <div className="filter-container">
           <FilterForm
@@ -168,11 +171,6 @@ function App() {
         </div>
       )}
 
-      {movie && !isLoading && (
-        <div className="movie-display">
-          <MovieDisplay movie={movie} />
-        </div>
-      )}
       <Analytics></Analytics>
       {hasSearched && !isLoading && movie === null && (
         <p className="no-movie-message">

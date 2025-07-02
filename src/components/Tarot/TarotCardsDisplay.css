@@ -1,0 +1,22 @@
+.tarot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tarot-card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(221, 68, 255, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarot-card-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 105, 255, 0.7);
+}
