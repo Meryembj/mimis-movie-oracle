@@ -63,7 +63,9 @@ function FilterForm({ onSubmit, onSubmitted }) {
         ))}
       </select>
 
-      <button type="submit">🔮 Reveal My Movie</button>
+      <button className="button-filter" type="submit">
+        🔮 Reveal My Movie
+      </button>
     </form>
   );
 }

@@ -51,6 +51,18 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(255, 105, 255, 0.8);
 }
+.button-filter {
+  background: linear-gradient(145deg, #3b0957, #471462);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  font-family: "Cinzel Decorative", serif;
+  box-shadow: 0 0 20px rgba(255, 105, 255, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
 select,
 input[type="number"] {

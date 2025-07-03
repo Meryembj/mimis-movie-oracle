@@ -151,9 +151,6 @@ function App() {
         </button>
         <button onClick={toggleFilters}>🃏 Random With Filters 🃏</button>
       </div>
-      <div className="tarot-result">
-        {!isLoading && movie && <TarotMovieCard movie={movie} />}
-      </div>
       {showFilters && (
         <div className="filter-container">
           <FilterForm
@@ -170,7 +167,9 @@ function App() {
           />
         </div>
       )}
-
+      <div className="tarot-result">
+        {!isLoading && movie && <TarotMovieCard movie={movie} />}
+      </div>
       <Analytics></Analytics>
       {hasSearched && !isLoading && movie === null && (
         <p className="no-movie-message">
