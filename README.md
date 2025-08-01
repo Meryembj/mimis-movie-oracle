@@ -1,8 +1,9 @@
 # Mimi’s Movie Oracle 🎥🔮
 
-A little magical project born from the eternal question: “What should I watch tonight?”
+When you're in the mood for a tarot reading AND a movie rec, at the same time.
 
-Powered by the universe, TMDB, and my own mystical algorithm, this app picks a random movie for you or lets you choose by genre and decade.
+Powered by the universe, TMDB, and my own mystical algorithm. 
+This app reveals a movie you're meant to watch, along with a tarot card that holds a message you need to hear.
 
 # https://mimis-movie-oracle.vercel.app/
 
@@ -27,4 +28,4 @@ Powered by the universe, TMDB, and my own mystical algorithm, this app picks a r
 
 5. Open your browser and go to http://localhost:3000 to see Mimi’s Movie Oracle in action.
 
-If you want help deploying this app or adding features, just ask!
+If you want help deploying this app or adding features, just ask !
