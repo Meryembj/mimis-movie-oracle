@@ -55,6 +55,7 @@ function TarotMovieCard({ movie }) {
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 alt={movie.title}
                 className="tarot-image"
+                title="Click on the image to see full details on TMDB"
               />
             </a>
 
